@@ -1,3 +1,3 @@
 ports = [22, 80, 443, 3306, 27017]
-image_id = "ami-0fc5d935ebf8bc3bc"
+image_id = "ami-05804339cc1cf98c0"
 instance_type = "t2.micro"
