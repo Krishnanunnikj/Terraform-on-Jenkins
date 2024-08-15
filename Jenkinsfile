@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        TERRAFORM_HOME = 'C:\\terraform' // Update this path to where Terraform is installed
+        TERRAFORM_HOME = 'C:\terraform_1.9.4_windows_386\terraform.exe' // Update this path to where Terraform is installed
         PATH = "${env.TERRAFORM_HOME};${env.PATH}"
     }
 
@@ -17,6 +17,8 @@ pipeline {
             steps {
                 script {
                     try {
+                        bat 'echo %PATH%'
+                        bat 'where terraform'
                         bat 'terraform version'
                     } catch (Exception e) {
                         error "Terraform is not installed or not in PATH. Please ensure Terraform is installed and the path is correct in the Jenkinsfile. Error: ${e.getMessage()}"
